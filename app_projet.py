@@ -26,15 +26,16 @@ from bokeh.palettes import Viridis256
 
 
 st.title('Les festivals en France')
-st.markdown("<br>", unsafe_allow_html=True)
-st.markdown("<br>", unsafe_allow_html=True)
-st.write("Prénom : Marion")
-st.write("Nom : Nguyen") 
-st.write("Linkedin : https://www.linkedin.com/in/marion-nguyen/ ") 
-st.write("Mail : marion.nguyen@efrei.net")
-st.write("#datavz2023efrei ")
-st.markdown("<br>", unsafe_allow_html=True)
-st.write("Lien du dataset : https://www.data.gouv.fr/fr/datasets/liste-des-festivals-en-france/ ")
+
+with st.sidebar :
+    st.write("Prénom : Marion")
+    st.write("Nom : Nguyen") 
+    st.write("Linkedin : https://www.linkedin.com/in/marion-nguyen/ ") 
+    st.write("Mail : marion.nguyen@efrei.net")
+    st.write("#datavz2023efrei ")
+    st.markdown("<br>", unsafe_allow_html=True)
+    st.write("Lien du dataset : https://www.data.gouv.fr/fr/datasets/liste-des-festivals-en-france/ ")
+
 
 st.markdown("<br>", unsafe_allow_html=True)
 st.markdown("<br>", unsafe_allow_html=True)
