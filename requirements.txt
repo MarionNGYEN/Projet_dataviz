@@ -1,9 +1,7 @@
-streamlit
+streamlit==1.28.0
 pandas
-re
 numpy
 altair
-plotly
+plotly==4.14.3
 matplotlib
 bokeh
-
