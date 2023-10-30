@@ -107,22 +107,20 @@ def extract_year(year_str):
 
 
 
-# HISTOGRAMME DE LA DISTRIBUTION DES ANNEES DE CREATION DES FESTIVALS EN FRANCE
+# COURBE DES ANNEES DE CREATION DES FESTIVALS EN FRANCE
+# Extraction de l'année de création des festivals
 df["Annee de Creation"] = df["annee_de_creation_du_festival"].apply(extract_year)
 # On ne garde que les années sous le bon format
 valid_years = df["Annee de Creation"].dropna()
-# Création de l'histogramme
 st.markdown("<br>", unsafe_allow_html=True)
 st.markdown("<br>", unsafe_allow_html=True)
-st.markdown("### Évolution du nombre de créations de festivals en France au fil des années", unsafe_allow_html=True)
-st.markdown("<br>", unsafe_allow_html=True)
-st.write("Distribution des années de création des festivals ")
-plt.figure(figsize=(10, 6)) 
-plt.hist(valid_years, bins=range(1900, 2030), edgecolor='k')
-plt.xlabel("Année de création")
-plt.ylabel("Nombre de festivals")
-plt.title("Histogramme des années de création des festivals")
-st.pyplot(plt)
+# Créez une sous-section Streamlit pour le graphique
+st.subheader("Évolution du nombre de créations de festivals en France au fil des années")
+# Créer un DataFrame pour compter le nombre de festivals par année
+festivals_by_year = valid_years.value_counts().sort_index().reset_index()
+festivals_by_year.columns = ["Année de création", "Nombre de festivals"]
+# Créer un graphique de ligne avec Streamlit
+st.line_chart(festivals_by_year.set_index("Année de création"))
 
 
 
